@@ -1,0 +1,14 @@
+2021-11-20 09:36:00,709 - __main__ - INFO - NEW FILE CREATEDC:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg
+2021-11-20 09:39:07,247 - __main__ - INFO - CHANGE IN DIRECTORY DETECTED
+2021-11-20 09:39:14,516 - __main__ - INFO - NEW FILE CREATED: C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg
+2021-11-20 09:39:15,529 - __main__ - INFO - RECEIVED MODIFIED EVENT: C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg.
+2021-11-20 09:39:16,583 - __main__ - INFO - RECEIVED MODIFIED EVENT: C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg.
+2021-11-20 09:39:17,265 - __main__ - INFO - 2021/11/20 14:39:17 -- Processing C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg...
+
+2021-11-20 09:39:17,267 - __main__ - INFO - RECEIVED CREATED EVENT: C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg.
+2021-11-20 09:39:17,487 - __main__ - INFO - FILE PROCESSED SUCCESSFULLY
+2021-11-20 09:39:17,563 - __main__ - INFO - FILE ARCHIVED SUCCESSFULLY
+2021-11-20 09:39:17,564 - __main__ - INFO - 2021/11/20 14:39:17 -- Finished processing C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg...
+
+2021-11-20 09:39:17,589 - __main__ - INFO - RECEIVED DELETED EVENT: C:\Users\rbwolf\iCloudDrive\iCloud~com~novosoft~TurboScan\Uploads\Headshot.jpg.
+2021-11-20 10:20:40,960 - __main__ - INFO - CHANGE IN DIRECTORY DETECTED

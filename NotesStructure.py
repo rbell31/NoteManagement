@@ -1,16 +1,17 @@
+import os.path
 from dataclasses import dataclass
 from datetime import datetime
-from pathlib import Path, PureWindowsPath
+from pathlib import Path
 from os.path import abspath
 from icecream import ic
 from push2postgresql import PSQL_INSERT
 import json
 
 # Parent class for all SQL Row Formats
-class SQL_Row():
+class SqlRow:
 
     # Class that adds DataClass functionality to any inherited class
-    class dataMeta(type):
+    class DataMeta(type):
         def __new__(metacls, cls, bases, classdict):
             """__new__ is a classmethod, even without @classmethod decorator
             Parameters
@@ -27,35 +28,35 @@ class SQL_Row():
 
     # New Row needs to be created
     # Process as new event with inherited DataClass decorator
-    class Event(metaclass=dataMeta):
-        dateTouch: str
+    class Event(metaclass=DataMeta):
+        modifiedOn: str
 
 
-    class newNote(Event):
-        dateStore: str
-        dateWrite: str
+    class NewNote(Event):
+        storedOn: str
+        # createdOn: str
         noteType: str
         filePath: str
-        rawText: str
 
 
 def get_timestamp():
     return datetime.now().strftime("%Y%m%d %I:%M:%S %p")
 
+def get_extension(filepath):
+    return str(Path(filepath).suffix)
+
 def get_note_cols():
-    return list(SQL_Row.newNote.__dict__.items())[4][1].keys()
+    return list(SqlRow.NewNote.__dict__.items())[4][1].keys()
 
-DATABASE = 'rbwolfff."NOTES"'
 
-add_row = ''.join(["INSERT ", "INTO ", DATABASE, ' ("',
-                      '","'.join(list(get_note_cols())), '") ',
-                      "VALUES ", "(", ",".join(['%s' for val in list(get_note_cols())]), ")"])
+def process_file(filepath):
+    Table = '"CORE".noteimage'
 
-ic(add_row)
+    add_row = ''.join(["INSERT ", "INTO ", Table, ' ("',
+                       '","'.join(list(get_note_cols())), '") ',
+                       "VALUES ", "(", ",".join(['%s' for val in list(get_note_cols())]), ")"])
 
-### EXAMPLE INPUT TO THE DATABASE ####
-filename = str(Path(PureWindowsPath(abspath(__file__))))
-filename = filename.replace("\\", '/')
-data = [get_timestamp(), get_timestamp(), get_timestamp(), 'txt', str(filename), '{"test" : "lots of textual"}']
+    filename = str(os.path.abspath(filepath))
+    data = [get_timestamp(), get_timestamp(), get_extension(filename), str(Path(filename))]
 
-PSQL_INSERT(add_row, data)
+    PSQL_INSERT(add_row, data)
